@@ -44,3 +44,16 @@ gem "mongoid-rspec", ">= 1.6.0", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 gem "bootstrap-sass", ">= 2.2.2.0"
+gem "quiet_assets", ">= 1.0.1", :group => :development
+gem "better_errors", ">= 0.3.2", :group => :development
+gem "binding_of_caller", ">= 0.6.8", :group => :development
+
+
+group :test do
+	# Replaces fixtures
+	gem 'factory_girl'
+	# Coverage
+	gem 'simplecov', :require => false
+    #Shoulda 
+    gem 'shoulda-matchers'
+end
