@@ -9,6 +9,22 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
+  <p>
+    <ul class="nav nav-list">
+      <li class="active">
+        <a href="/disciplinas"><i class="icon-home icon-white icon-book"></i> Home - Disciplinas </a>
+      </li>
+      <li>
+        <a href="/professors"><i class="icon-user icon-briefcase"></i>Professors</a>
+      </li>
+      <li>
+        <a href="/alunos"><i class="icon-user"></i>Alunos</a>
+      </li>
+      <li>
+        <a href="/turmas"><i class="icon-th-list"></i>Turmas</a>
+      </li>
+    </ul>
+  </p>
   <body class="<%= controller_name %> <%= action_name %>">
     <header class="navbar navbar-fixed-top">
       <nav class="navbar-inner">
