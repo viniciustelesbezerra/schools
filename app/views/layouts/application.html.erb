@@ -9,30 +9,34 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <p>
-    <ul class="nav nav-list">
-      <li class="active">
-        <a href="/disciplinas"><i class="icon-home icon-white icon-book"></i> Home - Disciplinas </a>
-      </li>
-      <li>
-        <a href="/professors"><i class="icon-user icon-briefcase"></i>Professors</a>
-      </li>
-      <li>
-        <a href="/alunos"><i class="icon-user"></i>Alunos</a>
-      </li>
-      <li>
-        <a href="/turmas"><i class="icon-th-list"></i>Turmas</a>
-      </li>
-    </ul>
-  </p>
   <body class="<%= controller_name %> <%= action_name %>">
     <header class="navbar navbar-fixed-top">
       <nav class="navbar-inner">
         <div class="container">
-          <%= render 'layouts/navigation' %>
+          <i>Sistema Escola - viniciustelesbezerra</i>
+          <img src="https://pt.gravatar.com/userimage/40790479/156722cbc92bdf9fc167a1479c28f8d0.jpg" width="25" height="25" />
+          <%#= render 'layouts/navigation' %>
         </div>
       </nav>
     </header>
+    <nav>
+      <p>
+        <ul class="nav nav-list">
+          <li class="active">
+            <a href="/disciplinas"><i class="icon-home icon-white icon-book"></i> Home - Disciplinas </a>
+          </li>
+          <li>
+            <a href="/professors"><i class="icon-user icon-briefcase"></i>Professors</a>
+          </li>
+          <li>
+            <a href="/alunos"><i class="icon-user"></i>Alunos</a>
+          </li>
+          <li>
+            <a href="/turmas"><i class="icon-th-list"></i>Turmas</a>
+          </li>
+        </ul>
+      </p>
+    </nav>
     <div id="main" role="main">
       <div class="container">
         <div class="content">
