@@ -1,4 +1,16 @@
 SistemaEscola::Application.routes.draw do
+  resources :alunos
+
+
+  resources :turmas
+
+
+  resources :disciplinas
+
+
+  resources :professors
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
