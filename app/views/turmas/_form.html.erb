@@ -15,15 +15,12 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  
+
   <%= f.fields_for :disciplina do |d| %>
-    <div class="field">
-      <%= d.label :disciplina %><br />
-      <%= d.text_field :name %>
-    </div>
-    <div class="field">
-      <%= d.label :professor %><br />
-      <%= d.text_field :professor %>
+    <label> Disciplina - Professor  <%= button_tag '+ Disciplina', class: 'btn btn-info' %> </label> 
+    <div class="disc">
+      <%= d.collection_select :disciplina, Disciplina.all, :id, :name, include_blank: "Selecione a Disciplina" %>
+      <%= d.text_field :professor, readonly: true %>
     </div>
   <% end %>
 
