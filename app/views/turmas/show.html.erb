@@ -3,6 +3,13 @@
   <%= @turma.name %>
 </p>
 
+<p>
+  <b>Nome disciplina:</b>
+  <% @turma.disciplinas.find_each do |disciplina| %>
+    <%= disciplina.name %>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_turma_path(@turma) %> |
 <%= link_to 'Back', turmas_path %>

@@ -1,4 +1,8 @@
 class TurmasController < ApplicationController
+  def report
+    @turmas = Turma.search(params)
+  end
+
   # GET /turmas
   # GET /turmas.json
   def index
@@ -44,6 +48,9 @@ class TurmasController < ApplicationController
 
     respond_to do |format|
       if @turma.save
+        params[:disciplinas][:id].each do |id_disciplna|
+          @turma.disciplinas.push(Disciplina.find(id_disciplna))
+        end
         format.html { redirect_to @turma, notice: 'Turma was successfully created.' }
         format.json { render json: @turma, status: :created, location: @turma }
       else

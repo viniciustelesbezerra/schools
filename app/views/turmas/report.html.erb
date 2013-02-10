@@ -1,4 +1,12 @@
-<h1>Listing turmas</h1>
+<h1>Report</h1>
+
+<p>
+  <%= form_tag '/turmas/report', :method => 'post' do %>
+      <label> Turma </label> <%= text_field_tag :turma, params[:turma] %> 
+      <label> Professor </label> <%= text_field_tag :professor, params[:professor] %>
+      <label> <%= submit_tag "Search", :name => nil %> </label>
+  <% end %>
+</p>
 
 <table class="table table-bordered">
   <tr>
@@ -10,8 +18,6 @@
   <tr class="success">
     <td><%= turma.name %></td>
     <td><%= link_to 'Show', turma %></td>
-    <td><%= link_to 'Edit', edit_turma_path(turma) %></td>
-    <td><%= link_to 'Destroy', turma, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 
   <tr>
@@ -28,7 +34,3 @@
 
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Turma', new_turma_path %>

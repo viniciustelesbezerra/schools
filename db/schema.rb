@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(:version => 20130209143224) do
 
   add_index "alunos", ["turma_id"], :name => "index_alunos_on_turma_id"
 
+  create_table "disciplina_turmas", :force => true do |t|
+    t.integer  "disciplina_id"
+    t.integer  "turma_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "disciplina_turmas", ["disciplina_id"], :name => "index_disciplina_turmas_on_disciplina_id"
+  add_index "disciplina_turmas", ["turma_id"], :name => "index_disciplina_turmas_on_turma_id"
+
   create_table "disciplinas", :force => true do |t|
     t.string   "name"
     t.integer  "professor_id"
@@ -31,16 +41,6 @@ ActiveRecord::Schema.define(:version => 20130209143224) do
   end
 
   add_index "disciplinas", ["professor_id"], :name => "index_disciplinas_on_professor_id"
-
-  create_table "disciplinas_turmas", :id => false, :force => true do |t|
-    t.integer  "disciplina_id"
-    t.integer  "turma_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "disciplinas_turmas", ["disciplina_id"], :name => "index_disciplinas_turmas_on_disciplina_id"
-  add_index "disciplinas_turmas", ["turma_id"], :name => "index_disciplinas_turmas_on_turma_id"
 
   create_table "professors", :force => true do |t|
     t.string   "name"

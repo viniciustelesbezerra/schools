@@ -15,16 +15,18 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-
-  <%= f.fields_for :disciplina do |d| %>
-    <label> Disciplina - Professor  <%= button_tag '+ Disciplina', class: 'btn btn-info' %> </label> 
-    <div class="disc">
-      <%= d.collection_select :disciplina, Disciplina.all, :id, :name, include_blank: "Selecione a Disciplina" %>
-      <%= d.text_field :professor, readonly: true %>
-    </div>
-  <% end %>
-
+  
+  <label>Disciplina - Professor</label> 
+  <% Disciplina.find_each do |disciplina| %>
+      <label>
+        <%= check_box_tag 'disciplinas[id][]', disciplina.id, @turma.disciplinas.include?(disciplina) %>
+        <%= disciplina.name %> - <%= disciplina.professor.name %>
+      </label>
+   <% end %>
+  
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+  
