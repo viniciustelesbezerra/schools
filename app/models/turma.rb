@@ -5,13 +5,11 @@ class Turma < ActiveRecord::Base
   	attr_accessible :name, :disciplinas_attributes
 
   	def self.search(search)
-	  puts search.pretty_inspect
-	  if search
-	    find(:all, conditions: ['name = ? or professor.name = ?', "#{search[:turma]}", "#{search[:professor]}" ])
+	  if search && !search[:id].eql?('all')
+	    includes(:disciplinas => [:professor]).where(['turmas.name = ? or professors.name = ?', "#{search[:turma]}", "#{search[:professor]}"])
 	  else
-	    find(:all)
+	    all
 	  end
 	end
 
 end
-
