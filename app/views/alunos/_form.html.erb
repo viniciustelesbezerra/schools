@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :turma %><br />
-    <%= f.text_field :turma %>
+    <%= f.collection_select :turma_id, Turma.all, :id, :name, include_blank: "Selecione a Turma" %>
   </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
