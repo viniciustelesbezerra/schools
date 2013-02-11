@@ -9,11 +9,11 @@
 </p>
 
 <table class="table table-bordered">
-  <tr>
-    <th>Name</th>
-  </tr>
-
+  
 <% @turmas.each do |turma| %>
+  <tr>
+    <th>Turma Name</th>
+  </tr>
 
   <tr class="success">
     <td><%= turma.name %></td>
@@ -28,6 +28,18 @@
         <% turma.disciplinas.find_each do |disciplina| %>
         <td>
           <%= "#{disciplina.name} - #{disciplina.professor.name}" %>
+        </td>
+        <% end %>
+  </tr>
+
+  <tr>
+    <th>Alunos</th>
+  </tr>
+
+  <tr class="error">
+        <% turma.alunos.find_each do |aluno| %>
+        <td>
+          <%= aluno.name %>
         </td>
         <% end %>
   </tr>
