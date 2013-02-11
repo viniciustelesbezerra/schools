@@ -3,6 +3,19 @@ require 'spec_helper'
 describe TurmasController do
   let!(:turma) { FactoryGirl.create(:turma) }
 
+  context "GET Report" do
+    it "assigns all turmas as @turmas" do
+      get :report
+      assigns(:turmas).should eq([])
+    end
+
+    it "renders the report view" do
+      get :report
+      response.should render_template :report
+    end
+
+  end
+
   context "GET index" do
     it "assigns all turmas as @turmas" do
       get :index
@@ -50,21 +63,23 @@ describe TurmasController do
   end
 
   context "POST create" do
+    let!(:disciplina) { FactoryGirl.create(:disciplina) }
+
     context "with valid params" do
       it "creates a new turma" do
         expect {
-          post :create, turma: FactoryGirl.attributes_for(:turma)
+          post :create, { turma: FactoryGirl.attributes_for(:turma), disciplinas: { id: [1] } } 
         }.to change(Turma, :count).by(1)
       end
 
       it "assigns a newly created turma as @turma" do
-        post :create, turma: FactoryGirl.attributes_for(:turma)
+        post :create, { turma: FactoryGirl.attributes_for(:turma), disciplinas: { id: [1] } }
         assigns(:turma).should be_a(Turma)
         assigns(:turma).should be_persisted
       end
 
       it "redirects to the created turma" do
-        post :create, turma: FactoryGirl.attributes_for(:turma)
+        post :create, { turma: FactoryGirl.attributes_for(:turma), disciplinas: { id: [1] } }
         response.code.should eq("302")
       end
     end

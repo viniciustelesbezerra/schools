@@ -17,7 +17,7 @@ FactoryGirl.define do
         after(:create) do |professor, evaluator|
             FactoryGirl.create_list(:disciplina, evaluator.professor_count, professor: professor)
         end
-      end
+    end
        
     factory :invalid_professor, traits: [:invalid]
   end

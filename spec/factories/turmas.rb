@@ -8,6 +8,15 @@ FactoryGirl.define do
    	trait :invalid do
   	end
 
+    factory :turma_with_disciplinas do
+        ignore do
+            disciplina_count 1
+        end
+        after(:create) do |turma, evaluator|
+          FactoryGirl.create_list(:disciplina, evaluator.disciplina_count, turma: turma)
+        end
+    end
+
   	factory :invalid_turma, traits: [:invalid]
   end
 

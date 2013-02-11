@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe DisciplinasController do
-  let!(:disciplina) { FactoryGirl.create(:disciplina_with_turmas) }
+  let!(:disciplina) { FactoryGirl.create(:disciplina) }
 
   context "GET index" do
     it "assigns all disciplinas as @disciplinas" do
