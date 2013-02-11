@@ -1,4 +1,5 @@
 class Professor < ActiveRecord::Base
 	has_many :disciplinas
-  	attr_accessible :age, :name
+  	attr_accessible :name, :age 
+  	validates :name, :age, :presence => true 
 end

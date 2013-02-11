@@ -1,9 +1,16 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
+  
   factory :aluno do
-    name "MyString"
-    age 1
-    turma nil
+    name "Aluno Um"
+    age 11
+  
+   	trait :invalid do
+  	end
+
+  	factory :invalid_aluno, traits: [:invalid]
+    association :turma, factory: :turma
   end
+
 end
