@@ -56,4 +56,6 @@ group :test do
   #Shoulda 
   gem 'shoulda-matchers'
   gem 'launchy'
+  #JS Scpecs
+  gem 'jasmine'
 end

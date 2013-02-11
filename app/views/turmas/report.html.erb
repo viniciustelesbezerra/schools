@@ -1,10 +1,10 @@
 <h1>Report</h1>
 
 <p>
-  <%= form_tag '/turmas/report', :method => 'post' do %>
+  <%= form_tag '/turmas/report', method: 'post' do %>
       <label> Turma </label> <%= text_field_tag :turma, params[:turma] %> 
       <label> Professor </label> <%= text_field_tag :professor, params[:professor] %>
-      <label> <%= submit_tag "Search", :name => nil %> </label>
+      <label> <%= submit_tag "Search", name: nil %> </label>
   <% end %>
 </p>
 
