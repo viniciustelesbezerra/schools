@@ -1,9 +1,8 @@
 class Turma < ActiveRecord::Base
-	has_many :alunos, dependent: :destroy
+	has_many :alunos
 	has_many :disciplina_turma, dependent: :destroy
 	has_many :disciplinas, through: :disciplina_turma
-  	accepts_nested_attributes_for :disciplinas  	
-  	attr_accessible :name, :disciplinas_attributes
+  	attr_accessible :name
   	validates :name, presence: true 
 
   	def self.search(search)
