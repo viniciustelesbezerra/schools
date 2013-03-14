@@ -1,5 +1,8 @@
 require 'simplecov'
 SimpleCov.start do
+  # Use color in STDOUT
+  config.color_enabled = true
+  
   add_filter "/spec/"
   add_filter "/vendor/"
 

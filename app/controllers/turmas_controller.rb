@@ -22,7 +22,7 @@ class TurmasController < ApplicationController
   def create
     @turma = Turma.new(params[:turma])
     if @turma.save
-      params[:disciplinas][:id].each{ |id_disciplna| @turma_disciplinas.push(Disciplina.find(id_disciplna)) }
+      params[:disciplinas][:id].each{ |id_disciplna| @turma.disciplinas.push(Disciplina.find(id_disciplna)) }
       flash[:notice] = 'Turma was successfully created.'
     end    
     respond_with(@turma)
@@ -35,8 +35,7 @@ class TurmasController < ApplicationController
       @turma_disciplinas = @turma.disciplinas
 
       found_ids = []
-      @turma_disciplinas.find_each{ |ids_disciplina| found_ids.push(ids_disciplina.id) }
-
+      @turma_disciplinas.find_each{ |ids_disciplina| found_ids.push(ids_disciplina.id) } 
       params[:disciplinas][:id].each{ |id_disciplina| found_ids.include?(id_disciplina.to_i) ? found_ids.delete(id_disciplina.to_i) : @turma_disciplinas.push(Disciplina.find(id_disciplina)) }
 
       found_ids.each do |ids_to_delete|
