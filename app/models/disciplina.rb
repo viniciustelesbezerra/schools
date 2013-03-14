@@ -4,4 +4,5 @@ class Disciplina < ActiveRecord::Base
 	has_many :turmas, through: :disciplina_turma
   	attr_accessible :name, :professor_id
   	validates :name, presence: true 
+  	default_scope includes(:professor)
 end

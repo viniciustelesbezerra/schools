@@ -4,7 +4,6 @@
   <tr>
     <th>Name</th>
     <th>Age</th>
-    <th>Turma</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,7 +13,6 @@
   <tr>
     <td><%= aluno.name %></td>
     <td><%= aluno.age %></td>
-    <td><%= aluno.turma.name %></td>
     <td><%= link_to 'Show', aluno %></td>
     <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
     <td><%= link_to 'Destroy', aluno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
